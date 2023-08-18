@@ -1,7 +1,13 @@
 from deepClassifier.constants import CONFIG_FILE_PATH,PARAMS_FILE_PATH
 from deepClassifier.utils import read_yaml,create_directories
-from deepClassifier.entity import DataIngestionConfig,PrepareCallbacksConfig,TrainingConfig
+from deepClassifier.entity import (
+    DataIngestionConfig,
+    PrepareBaseModelConfig,
+    PrepareCallbacksConfig,
+    TrainingConfig)
+
 from pathlib import Path
+import os
 
 
 class ConfigurationManager:
@@ -26,7 +32,7 @@ class ConfigurationManager:
 
         return data_ingestion_config
     
-    
+
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
         config = self.config.prepare_base_model
         
